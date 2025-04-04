@@ -215,7 +215,7 @@ async function sendMessage() {
   toggleTyping(true, chatId);
 
   try {
-    const res = await fetch("https://df1d0940-b0fd-4216-9518-3fc75927d8c4-00-11h3ajifm4h7i.pike.replit.dev/chat", {
+    const res = await fetch("https://my-chatbot-backend-production.up.railway.app/chat", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ sessionId, message, image: currentImage })
@@ -336,7 +336,7 @@ function regenerate(chatId) {
   if (!data) return;
 
   toggleTyping(true, chatId);
-  fetch("https://df1d0940-b0fd-4216-9518-3fc75927d8c4-00-11h3ajifm4h7i.pike.replit.dev/chat", {
+  fetch("https://my-chatbot-backend-production.up.railway.app/chat", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ sessionId, message: data.message, image: data.image })
@@ -392,7 +392,7 @@ function startVoiceInput() {
     const currentImage = imageBase64;
     clearPreview();
     toggleTyping(true, chatId);
-    fetch("https://df1d0940-b0fd-4216-9518-3fc75927d8c4-00-11h3ajifm4h7i.pike.replit.dev/chat", {
+    fetch("https://my-chatbot-backend-production.up.railway.app/chat", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ sessionId, message: transcript, image: currentImage })
